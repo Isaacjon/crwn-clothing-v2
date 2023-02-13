@@ -43,6 +43,7 @@ export const createUserDocumentFromAuth = async (userAuth) => {
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
+   
     const createdAt = new Date();
 
     try {
