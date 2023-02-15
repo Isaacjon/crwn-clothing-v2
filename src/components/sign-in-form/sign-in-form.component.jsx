@@ -10,6 +10,7 @@ const defaultFormFields = {
 }
 
 const SignInForm = ({ setRegisteredUser }) => {
+
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { email, password } = formFields
 
@@ -25,7 +26,6 @@ const SignInForm = ({ setRegisteredUser }) => {
 
     try {
       const { user } = await signInUserWithEmailAndPassword(email, password)
-      console.log(user);
 
       setFormFields(defaultFormFields)
     } catch (error) {
@@ -48,10 +48,7 @@ const SignInForm = ({ setRegisteredUser }) => {
 
   const signInWithGoogle = async () => {
     try {
-      const { user } = await signInWithGooglePopup()
-      await createUserDocumentFromAuth(user)
-
-      console.log('user ', user);
+      await signInWithGooglePopup()
       setFormFields(defaultFormFields)
 
     } catch (error) {

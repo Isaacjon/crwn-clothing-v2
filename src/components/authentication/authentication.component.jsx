@@ -6,13 +6,14 @@ import { useState } from "react"
 
 const Authentication = () => {
 
-  const [registeredUser, setRegisteredUser] = useState(false)
+  const [registeredUser, setRegisteredUser] = useState(true)
 
   return (
-    <div className="authentication-container">
+    <div className="authentication-container flex">
       <h3> Sign {registeredUser ? 'In' : 'Up'} Page </h3>
       {registeredUser ? <SignInForm setRegisteredUser={setRegisteredUser} /> : <SignUpForm setRegisteredUser={setRegisteredUser} />}
-
+      {/* <SignInForm />
+      <SignUpForm /> */}
     </div>
   )
 }
