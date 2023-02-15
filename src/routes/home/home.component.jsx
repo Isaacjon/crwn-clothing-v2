@@ -24,11 +24,11 @@ const Home = () => {
       title: "womens",
       imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     },
-    {
-      id: 5,
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    },
+    // {
+    //   id: 5,
+    //   title: "mens",
+    //   imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+    // },
   ];
   return <div>
     <Outlet />
