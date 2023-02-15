@@ -9,6 +9,14 @@
     height: 100%;
     width: 70px;
     padding: 25px;
+
+    @media (max-width: 600px) {
+      padding: 10px;
+
+      svg {
+        width: 40px;
+      }
+    }
   }
 
   .nav-links-container {
@@ -21,6 +29,12 @@
     .nav-link {
       padding: 10px 15px;
       cursor: pointer;
+      font-weight: 400;
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+      text-decoration: underline;
     }
   }
 }

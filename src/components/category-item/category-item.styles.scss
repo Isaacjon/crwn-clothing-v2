@@ -5,9 +5,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid transparent;
   margin: 0 7.5px 15px;
   overflow: hidden;
+
+  @media (max-width:600px) {
+  height: 200px;
+    
+  }
 
   &:hover {
     cursor: pointer;

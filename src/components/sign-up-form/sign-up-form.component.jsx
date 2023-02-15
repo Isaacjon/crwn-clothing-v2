@@ -11,7 +11,7 @@ const defaultFormFields = {
   confirmPassword: "",
 }
 
-const SignUpForm = () => {
+const SignUpForm = ({ setRegisteredUser }) => {
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { displayName, email, password, confirmPassword } = formFields
 
@@ -27,6 +27,8 @@ const SignUpForm = () => {
 
       setFormFields(defaultFormFields)
 
+      return userDocRef
+
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         return alert('Can not create user, email already exists!')
@@ -38,14 +40,13 @@ const SignUpForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-
     setFormFields({ ...formFields, [name]: value })
   }
 
   return (
     <div className="sign-up-container">
       <h2>Don't have an account</h2>
-      <span>Sign up with your email and password</span>
+      <span>Sign up here</span>
       <form onSubmit={handleSubmit}>
         <FormInput label="Display Name" value={displayName} onChange={handleChange} name="displayName" type="text" required />
 
@@ -55,7 +56,10 @@ const SignUpForm = () => {
 
         <FormInput label="Confirm Password" minLength="6" value={confirmPassword} onChange={handleChange} name="confirmPassword" type="password" required />
 
-        <Button buttonType="" >Sign Up</Button>
+        <div className="flex items-center gap-25 justify-between">
+          <Button buttonType="" >Sign Up</Button>
+          <span onClick={e => setRegisteredUser(true)} style={{ fontWeight: "600", textDecoration: "underline", color: "#0F6292", cursor: "pointer" }}>Already have an account ?</span>
+        </div>
 
       </form>
     </div>
